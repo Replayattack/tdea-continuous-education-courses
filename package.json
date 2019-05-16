@@ -1,0 +1,20 @@
+{
+  "name": "tdea-continuous-education-courses",
+  "version": "0.1.0",
+  "description": "Continuous education courses management application.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/Replayattack/tdea-continuous-education-courses.git"
+  },
+  "keywords": [],
+  "author": "Daniel G. <replayattack@pm.me>",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://gitlab.com/Replayattack/tdea-continuous-education-courses/issues"
+  },
+  "homepage": "https://gitlab.com/Replayattack/tdea-continuous-education-courses#readme"
+}
