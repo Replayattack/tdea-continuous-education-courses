@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node $npm_package_main",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://gitlab.com/Replayattack/tdea-continuous-education-courses/issues"
   },
-  "homepage": "https://gitlab.com/Replayattack/tdea-continuous-education-courses#readme"
+  "homepage": "https://gitlab.com/Replayattack/tdea-continuous-education-courses#readme",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
 }
