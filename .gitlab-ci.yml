@@ -1,0 +1,19 @@
+stages:
+  - test
+
+.job-template: &job_definition
+  stage: test
+  script:
+   - npm install
+   - npm run test
+  cache:
+    paths:
+    - node_modules/
+
+latest:
+  <<: *job_definition
+  image: node:12
+
+lts:
+  <<: *job_definition
+  image: node:10
