@@ -1,0 +1,22 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "name": "Introducción a la programación",
+      "price": 150000,
+      "duration": "64 horas"
+    },
+    {
+      "id": 2,
+      "name": "Certificación en Node.js",
+      "price": 200000,
+      "duration": "64 horas"
+    },
+    {
+      "id": 3,
+      "name": "Inglés",
+      "price": 150000,
+      "duration": "64 horas"
+    }
+  ]
+}
