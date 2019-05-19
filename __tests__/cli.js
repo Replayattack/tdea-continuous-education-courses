@@ -1,5 +1,9 @@
 const fs = require('fs')
-const { printCourses, readCoursesFile } = require('./cli')
+const {
+  printCourses,
+  readCoursesFile,
+  searchCourse
+} = require('../cli')
 
 jest.mock('fs', () => ({
   promises: {
@@ -60,5 +64,51 @@ describe('printCourses', () => {
 
     jest.advanceTimersByTime(TWO_SECONDS * 3)
     expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS * 3)
+  })
+})
+
+describe('searchCourse', () => {
+  beforeEach(() => {
+    const content = `
+    {
+      "courses": [
+        {
+          "id": 1,
+          "name": "Node.js Certification",
+          "duration": "32 hours",
+          "price": 0
+        }
+      ]
+    }
+    `
+    fs.promises.readFile.mockResolvedValue(content)
+  })
+
+  it('throws an Error when it doesn\'t receive arguments', async () => {
+    try {
+      await searchCourse()
+    } catch (error) {
+      expect(error).toEqual(new Error('it must be called with an argument'))
+    }
+  })
+
+  it('throws a TypeError when its argument isn\'t a number', async () => {
+    try {
+      await searchCourse('')
+    } catch (error) {
+      expect(error).toEqual(new TypeError('id must be a number'))
+    }
+  })
+
+  it('returns undefined when it doesn\'t find a course', async () => {
+    const course = await searchCourse(2)
+
+    expect(course).toBeUndefined()
+  })
+
+  it('returns a course when it finds him', async () => {
+    const course = await searchCourse(1)
+
+    expect(course).toBeDefined()
   })
 })

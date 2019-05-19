@@ -18,7 +18,18 @@ async function printCourses() {
   })
 }
 
+async function searchCourse(id) {
+  if (arguments.length !== 1)
+    throw new Error('it must be called with an argument')
+  if (typeof id !== 'number')
+    throw new TypeError('id must be a number')
+
+  const { courses } = await readCoursesFile()
+  return courses.find(course => course.id === id)
+}
+
 module.exports = {
   printCourses,
-  readCoursesFile
+  readCoursesFile,
+  searchCourse
 }
