@@ -8,12 +8,12 @@ function readCoursesFile() {
     .then(JSON.parse)
 }
 
-async function printCourses() {
+async function printCourses(logger = console) {
   const { courses } = await readCoursesFile();
   let timeout = 2000
   courses.forEach(({ id, name, price, duration }) => {
     setTimeout(() => {
-      console.log(`El curso ${name} identificado con el número ${id}, tiene una duración de ${duration} y un valor de ${price} pesos.`);
+      logger.log(`El curso ${name} identificado con el número ${id}, tiene una duración de ${duration} y un valor de ${price} pesos.`);
     }, timeout);
     timeout += 2000
   })

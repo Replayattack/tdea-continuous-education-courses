@@ -15,7 +15,7 @@ jest.mock('fs', () => ({
 }))
 
 describe('readCoursesFile', () => {
-  it('should return the courses.json file content', () => {
+  it('return the courses.json file content', () => {
     const fileContent = `{"courses": []}`
     fs.promises.readFile.mockResolvedValue(fileContent)
 
@@ -29,8 +29,11 @@ describe('readCoursesFile', () => {
 describe('printCourses', () => {
   jest.useFakeTimers()
 
-  it('should print the courses every two seconds', async () => {
+  it('print the courses every two seconds', async () => {
     const TWO_SECONDS = 2000
+    const logger = {
+      log: jest.fn()
+    }
     const fileContent =
       `{
         "courses": [
@@ -56,17 +59,16 @@ describe('printCourses', () => {
       }`
     fs.promises.readFile.mockResolvedValue(fileContent)
 
-    await printCourses()
+    await printCourses(logger)
     expect(setTimeout).toHaveBeenCalledTimes(3)
+    expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS)
+    expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS * 2)
+    expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS * 3)
 
     jest.advanceTimersByTime(TWO_SECONDS)
-    expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS)
-
     jest.advanceTimersByTime(TWO_SECONDS * 2)
-    expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS * 2)
-
     jest.advanceTimersByTime(TWO_SECONDS * 3)
-    expect(setTimeout).toBeCalledWith(expect.any(Function), TWO_SECONDS * 3)
+    expect(logger.log).toHaveBeenCalledTimes(3)
   })
 })
 
