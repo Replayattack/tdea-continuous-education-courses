@@ -1,1 +1,2 @@
-require('./cli').printCourses()
+require('./cli')
+  .main()
