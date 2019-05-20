@@ -41,5 +41,5 @@ node index.js inscribir --curso 3 --nombre 'John Doe' --cedula 123456789
 ## License
 Ver el archivo **LICENSE**.
 
-# References
+## References
 README creado en base al siguiente artículo: [ A meaningful README.md](https://dev.to/pratikaambani/a-meaningful-readmemd-565a)
