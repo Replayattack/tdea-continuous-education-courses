@@ -11,7 +11,7 @@ it('prints the help message when it doesn\'t receive all command options',
     })
 
     expect(result)
-      .toEqual(expect.stringContaining('Missing required arguments: identification, name, course'))
+      .toEqual(expect.stringContaining('Enroll a student to a course.'))
   })
 
 it('prints the successful message when a student is enrolled', async () => {
