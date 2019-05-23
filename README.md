@@ -1,4 +1,7 @@
 # TdeA Continuous Education Courses
+[![pipeline status](https://gitlab.com/Replayattack/tdea-continuous-education-courses/badges/master/pipeline.svg)](https://gitlab.com/Replayattack/tdea-continuous-education-courses/commits/master)
+[![coverage report](https://gitlab.com/Replayattack/tdea-continuous-education-courses/badges/master/coverage.svg)](https://gitlab.com/Replayattack/tdea-continuous-education-courses/commits/master)
+
 Esta aplicación de línea de comandos permite listar los cursos ofrecidos por la dependencia de Educación Continua del Tecnológico de Antioquia y pre-matricularse al curso interesado.
 
 ## Libraries used
@@ -42,4 +45,4 @@ node index.js inscribir --curso 3 --nombre 'John Doe' --cedula 123456789
 Ver el archivo **LICENSE**.
 
 ## References
-README creado en base al siguiente artículo: [ A meaningful README.md](https://dev.to/pratikaambani/a-meaningful-readmemd-565a)
+README creado en base al siguiente artículo: [A meaningful README.md](https://dev.to/pratikaambani/a-meaningful-readmemd-565a)
