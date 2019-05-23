@@ -12,8 +12,8 @@ stages:
 
 latest:
   <<: *job_definition
-  image: node:12
+  image: node:current-alpine
 
 lts:
   <<: *job_definition
-  image: node:10
+  image: node:lts-alpine
