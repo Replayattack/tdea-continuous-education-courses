@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint --ext .js .",
     "start": "node $npm_package_main",
-    "style": "prettier --write **/*.{js,json,html}",
+    "style": "prettier --write ./*.{html?,js} src/*.{html?,js} {.,src,__tests__}/**/**/*.{html?,js}",
     "test": "jest"
   },
   "repository": {
