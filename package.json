@@ -21,10 +21,10 @@
   },
   "homepage": "https://gitlab.com/Replayattack/tdea-continuous-education-courses#readme",
   "devDependencies": {
-    "jest": "^24.8.0",
-    "prettier": "^1.17.1"
+    "jest": "24.8.0",
+    "prettier": "1.17.1"
   },
   "dependencies": {
-    "yargs": "^13.2.4"
+    "yargs": "13.2.4"
   }
 }
