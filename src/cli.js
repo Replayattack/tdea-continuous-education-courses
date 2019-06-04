@@ -2,19 +2,22 @@ const fs = require('fs')
 const yargs = require('yargs')
 
 function readCoursesFile() {
-  return fs.promises.readFile('./courses.json', {
-    encoding: 'utf-8'
-  })
+  return fs.promises
+    .readFile('./courses.json', {
+      encoding: 'utf-8'
+    })
     .then(JSON.parse)
 }
 
 async function printCourses(logger = console) {
-  const { courses } = await readCoursesFile();
+  const { courses } = await readCoursesFile()
   let timeout = 2000
   courses.forEach(({ id, name, price, duration }) => {
     setTimeout(() => {
-      logger.log(`El curso ${name} identificado con el número ${id}, tiene una duración de ${duration} y un valor de ${price} pesos.`);
-    }, timeout);
+      logger.log(
+        `El curso ${name} identificado con el número ${id}, tiene una duración de ${duration} y un valor de ${price} pesos.`
+      )
+    }, timeout)
     timeout += 2000
   })
 }
@@ -22,8 +25,7 @@ async function printCourses(logger = console) {
 async function searchCourse(id) {
   if (arguments.length !== 1)
     throw new Error('it must be called with an argument')
-  if (typeof id !== 'number')
-    throw new TypeError('id must be a number')
+  if (typeof id !== 'number') throw new TypeError('id must be a number')
 
   const { courses } = await readCoursesFile()
   return courses.find(course => course.id === id)
@@ -48,7 +50,9 @@ async function enroll({ course, id, name, logger = console } = {}) {
   const _course = await searchCourse(course)
   const student = { id, name }
   if (_course === undefined)
-    logger.info(`El curso identificado con el número ${course} no fue encontrado.`)
+    logger.info(
+      `El curso identificado con el número ${course} no fue encontrado.`
+    )
   else {
     await saveEnroll({ course: _course, student })
     logger.info('El estudiante fue pre-matriculado correctamente.')
@@ -69,8 +73,7 @@ function main() {
     .commandDir('commands')
     .demandCommand()
     .version()
-    .help()
-    .argv
+    .help().argv
 }
 
 module.exports = {

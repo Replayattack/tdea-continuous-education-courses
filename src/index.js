@@ -1,2 +1,1 @@
-require('./cli')
-  .main()
+require('./cli').main()
