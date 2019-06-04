@@ -4,7 +4,7 @@
   "description": "Continuous education courses management application.",
   "main": "src/index.js",
   "scripts": {
-    "lint": "eslint **/*.js",
+    "lint": "eslint --ext .js .",
     "start": "node $npm_package_main",
     "style": "prettier --write **/*.{js,json,html}",
     "test": "jest"
