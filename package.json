@@ -7,7 +7,6 @@
     "lint": "eslint **/*.js",
     "start": "node $npm_package_main",
     "style": "prettier --write **/*.{js,json,html}",
-    "style:check": "prettier --check **/*.{js,json,html}",
     "test": "jest"
   },
   "repository": {
