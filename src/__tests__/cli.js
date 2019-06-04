@@ -5,7 +5,7 @@ const {
   readCoursesFile,
   saveEnroll,
   searchCourse
-} = require('../../src/cli')
+} = require('../cli')
 
 jest.mock('fs', () => ({
   promises: {

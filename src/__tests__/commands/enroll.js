@@ -1,7 +1,7 @@
 const util = require('util')
 const execFile = util.promisify(require('child_process').execFile)
 const yargs = require('yargs')
-const command = require('../../../src/commands/enroll')
+const command = require('../../commands/enroll')
 
 it("prints the help message when it doesn't receive all command options", async () => {
   const parser = yargs.command(command)
