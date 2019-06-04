@@ -8,23 +8,23 @@ exports.builder = {
   identification: {
     alias: ['i', 'id', 'cedula'],
     demandOption: true,
-    description: 'Student\'s id',
+    description: "Student's id",
     type: 'number'
   },
   name: {
     alias: ['n', 'nombre'],
     demandOption: true,
-    description: 'Student\'s name',
+    description: "Student's name",
     type: 'string'
   },
   course: {
     alias: ['c', 'curso'],
     demandOption: true,
-    description: 'Course\'s id',
+    description: "Course's id",
     type: 'number'
   }
 }
 
-exports.handler = (argv) => {
+exports.handler = argv => {
   enroll(argv)
 }

@@ -34,8 +34,7 @@ describe('printCourses', () => {
     const logger = {
       log: jest.fn()
     }
-    const fileContent =
-      `{
+    const fileContent = `{
         "courses": [
           {
             "id": 1,
@@ -89,7 +88,7 @@ describe('searchCourse', () => {
     fs.promises.readFile.mockResolvedValue(content)
   })
 
-  it('throws an Error when it doesn\'t receive arguments', async () => {
+  it("throws an Error when it doesn't receive arguments", async () => {
     try {
       await searchCourse()
     } catch (error) {
@@ -97,7 +96,7 @@ describe('searchCourse', () => {
     }
   })
 
-  it('throws a TypeError when its argument isn\'t a number', async () => {
+  it("throws a TypeError when its argument isn't a number", async () => {
     try {
       await searchCourse('')
     } catch (error) {
@@ -105,7 +104,7 @@ describe('searchCourse', () => {
     }
   })
 
-  it('returns undefined when it doesn\'t find a course', async () => {
+  it("returns undefined when it doesn't find a course", async () => {
     const course = await searchCourse(2)
 
     expect(course).toBeUndefined()
@@ -127,19 +126,20 @@ describe('enroll', () => {
     }
   })
 
-  it('throws an Error when its argument doesn\'t contain the course property',
-    async () => {
-      try {
-        await enroll({
-          id: 1,
-          name: 'John Doe'
-        })
-      } catch (error) {
-        expect(error).toEqual(new Error('its argument must contain the course property'))
-      }
-    })
+  it("throws an Error when its argument doesn't contain the course property", async () => {
+    try {
+      await enroll({
+        id: 1,
+        name: 'John Doe'
+      })
+    } catch (error) {
+      expect(error).toEqual(
+        new Error('its argument must contain the course property')
+      )
+    }
+  })
 
-  it('throws a TypeError when its course property isn\'t a integer', async () => {
+  it("throws a TypeError when its course property isn't a integer", async () => {
     try {
       await enroll({
         course: '1',
@@ -151,19 +151,20 @@ describe('enroll', () => {
     }
   })
 
-  it('throws an Error when its argument doesn\'t contain the id property',
-    async () => {
-      try {
-        await enroll({
-          course: 1,
-          name: 'John Doe'
-        })
-      } catch (error) {
-        expect(error).toEqual(new Error('its argument must contain the id property'))
-      }
-    })
+  it("throws an Error when its argument doesn't contain the id property", async () => {
+    try {
+      await enroll({
+        course: 1,
+        name: 'John Doe'
+      })
+    } catch (error) {
+      expect(error).toEqual(
+        new Error('its argument must contain the id property')
+      )
+    }
+  })
 
-  it('throws a TypeError when its id property isn\'t a integer', async () => {
+  it("throws a TypeError when its id property isn't a integer", async () => {
     try {
       await enroll({
         course: 1,
@@ -175,19 +176,20 @@ describe('enroll', () => {
     }
   })
 
-  it('throws an Error when its argument doesn\'t contain the name property',
-    async () => {
-      try {
-        await enroll({
-          course: 1,
-          id: 1
-        })
-      } catch (error) {
-        expect(error).toEqual(new Error('its argument must contain the name property'))
-      }
-    })
+  it("throws an Error when its argument doesn't contain the name property", async () => {
+    try {
+      await enroll({
+        course: 1,
+        id: 1
+      })
+    } catch (error) {
+      expect(error).toEqual(
+        new Error('its argument must contain the name property')
+      )
+    }
+  })
 
-  it('throws a TypeError when its name property isn\'t a string', async () => {
+  it("throws a TypeError when its name property isn't a string", async () => {
     try {
       await enroll({
         course: 1,
@@ -199,7 +201,7 @@ describe('enroll', () => {
     }
   })
 
-  it('prints an alert message when it doesn\'t find the course', async () => {
+  it("prints an alert message when it doesn't find the course", async () => {
     const logger = {
       info: jest.fn()
     }
@@ -235,7 +237,6 @@ describe('enroll', () => {
 })
 
 describe('saveEnroll', () => {
-
   it('saves the enroll process data and its course in a file', async () => {
     const course = {
       id: 1,
