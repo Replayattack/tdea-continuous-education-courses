@@ -6,7 +6,11 @@ module.exports = {
     node: true,
     jest: true
   },
-  extends: ['eslint:recommended', 'plugin:prettier/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:prettier/recommended',
+    'plugin:jest/recommended'
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly'
@@ -14,6 +18,5 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018
   },
-  plugins: ['jest'],
   rules: {}
 }
