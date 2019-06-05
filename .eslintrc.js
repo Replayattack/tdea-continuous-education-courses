@@ -9,7 +9,8 @@ module.exports = {
   extends: [
     'eslint:recommended',
     'plugin:prettier/recommended',
-    'plugin:jest/recommended'
+    'plugin:jest/recommended',
+    'plugin:cypress/recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -18,5 +19,7 @@ module.exports = {
   parserOptions: {
     ecmaVersion: 2018
   },
-  rules: {}
+  rules: {
+    'no-console': 'off'
+  }
 }
