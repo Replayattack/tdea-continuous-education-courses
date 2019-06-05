@@ -17,3 +17,26 @@ latest:
 lts:
   <<: *job_definition
   image: node:lts-alpine
+
+e2e:
+  image: cypress/base:10
+  stage: test
+  variables:
+    npm_config_cache: "$CI_PROJECT_DIR/.npm"
+    CYPRESS_CACHE_FOLDER: "$CI_PROJECT_DIR/cache/Cypress"
+  script:
+    - npm ci
+    - npm run e2e:verify
+    - npm start
+    - npm run e2e:record
+  cache:
+    paths:
+      - .npm
+      - cache/Cypress
+      - node_modules
+  artifacts:
+    when: always
+    paths:
+      - cypress/videos/**/*.mp4
+      - cypress/screenshots/**/*.png
+    expire_in: 1 day
